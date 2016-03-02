@@ -9,31 +9,118 @@
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-    pitch = 0.5
-    aidansong = [
-            [392, 800],
-            [261, 800],
-            [329, 300],
-            [349, 300],
-            [392, 800],
-            [261, 800],
-            [329, 300],
-            [349, 300],
-            [392, 800],
-            [261, 800],
-            [329, 300],
-            [349, 300],
+    pitch = 1
+    tempo = 3
+        aidansong = [
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
 
-            [392, 800],
-            [261, 800],
-            [311, 300],
-            [349, 300],
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+            
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
 
-            [392, 800],
-            [261, 400],
-            [311, 300],
-            [349, 300]
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [311*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+            //
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [311*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+
+            [392*pitch, 125*tempo],
+            [261*pitch, 125*tempo],
+            [329*pitch, 62.5*tempo],
+            [349*pitch, 62.5*tempo],
+            //
+            [392*pitch, 375*tempo], //start
+            
+            [261*pitch, 375*tempo],
+
+            [329*pitch, 62.5*tempo], 
+            [349*pitch, 62.5*tempo],
+            [392*pitch, 375*tempo],
+
+            [261*pitch, 375*tempo],
+
+            [329*pitch, 62.5*tempo], 
+            [349*pitch, 62.5*tempo],
+
+            [293*pitch, 125*tempo], //...
+            [196*pitch, 125*tempo],
+            [246*pitch, 62.5*tempo],
+            [261*pitch, 62.5*tempo],
+
+            [293*pitch, 125*tempo], 
+            [196*pitch, 125*tempo],
+            [246*pitch, 62.5*tempo],
+            [261*pitch, 62.5*tempo],
+            //
+            [293*pitch, 125*tempo], 
+            [196*pitch, 125*tempo],
+            [246*pitch, 62.5*tempo],
+            [261*pitch, 62.5*tempo],
+
+            [293*pitch, 125*tempo], 
+            [196*pitch, 125*tempo],
+            [246*pitch, 62.5*tempo],
+            [261*pitch, 62.5*tempo]
+
+            // [349.23*pitch, 375*tempo], //next part
+            
+            // [246.94*pitch, 375*tempo],
+
+            // [329.63*pitch, 62.5*tempo], 
+            // [293.66*pitch, 62.5*tempo],
+            // [349.23*pitch, 375*tempo],
+
+            // [246.94*pitch, 375*tempo],
+
+            // [329.63*pitch, 125*tempo], 
+            // [293.66*pitch, 62.5*tempo],
+
+            // [261*pitch, 187.5*tempo]
+
     ];
+    // aidansong = [
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [196 * pitch, 125 * tempo],
+    //     [830.6, 266.6],
+    //     [740, 266.6],
+    //     [659.3, 266.6],
+    //     [740, 266.6],
+    //     [830.6, 266.6],
+    //     [987.8, 133.3]
+    // ];
     $(document).ready(function() {
         var socket = io('/');
         socket.on('sensordata', function(data) {
